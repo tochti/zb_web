@@ -1,95 +1,91 @@
-import React, { Component } from "react";
-import { Dispatch } from "redux";
-import { connect } from "react-redux";
-import { clearInterval } from "timers";
+import React, { Component } from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
-import offersAPI from "../api/http/offers";
-import { ErrorType } from "../api/errors";
-import http from "../api/http";
-import AppState from "../state";
-import { BicyclesIndex, OffersIndex } from "../bicycle";
-import NewestOffer from "./NewestOffer";
-import { updateBackendState, BackendCondition } from "../BackendCondition";
+import AppState from '../state';
+import { BicyclesIndex, OffersIndex } from '../bicycle';
+import NewestOffer from './NewestOffer';
+import OpeningHours from '../openingHours';
 
-const requestOffers = async (dispatch: Dispatch<AppState>) => {
-  dispatch(requestingOffers());
+// const requestOffers = async (dispatch: Dispatch<AppState>) => {
+//     dispatch(requestingOffers());
 
-  const { offers, bicycles, err } = await offersAPI.requestOffers();
+//     const { offers, bicycles, err } = await offersAPI.requestOffers();
 
-  if (err) {
-    if (typeof err.Type === ErrorType.BadInput) {
-      // sentry.send(err);
-      throw err;
-    }
+//     if (err) {
+//         if (typeof err.Type === ErrorType.BadInput) {
+//             // sentry.send(err);
+//             throw err;
+//         }
 
-    dispatch(updateBackendState(BackendCondition.Error));
-  }
+//         dispatch(updateBackendState(BackendCondition.Error));
+//     }
 
-  dispatch(updateBackendState(BackendCondition.OK));
-  dispatch(updateOffers(offers));
-  dispatch(updateBicycles(bicycles));
+//     dispatch(updateBackendState(BackendCondition.OK));
+//     dispatch(updateOffers(offers));
+//     dispatch(updateBicycles(bicycles));
 
-  dispatch(stopRequestingOffers());
-};
+//     dispatch(stopRequestingOffers());
+// };
 
-const retryRequestOffers = (dispatch: Dispatch<AppState>): (() => void) => {
-  const ticker = setInterval(async () => {
-    const isOK = await requestOffers(dispatch);
-    if (!isOK) {
-      clearInterval(ticker);
-    }
-  }, http.timeout + 5);
+// const retryRequestOffers = (dispatch: Dispatch<AppState>): (() => void) => {
+//     const ticker = setInterval(async () => {
+//         const isOK = await requestOffers(dispatch);
+//         if (!isOK) {
+//             clearInterval(ticker);
+//         }
+//     }, http.timeout + 5);
 
-  return () => {
-    clearInterval(ticker);
-  };
-};
+//     return () => {
+//         clearInterval(ticker);
+//     };
+// };
 
 interface Props {
-  dispatch: Dispatch<AppState>;
-  offers: OffersIndex;
-  bicycles: BicyclesIndex;
-  isRequestingOffers?: boolean;
+    dispatch: Dispatch<AppState>;
+    offers: OffersIndex;
+    bicycles: BicyclesIndex;
+    isRequestingOffers?: boolean;
 }
 
 class Overview extends Component<Props> {
-  clearRequestOffersTicker: () => void;
+    clearRequestOffersTicker: () => void;
 
-  constructor(props: any) {
-    super(props);
-  }
-
-  async componentDidUpdate() {
-    const { dispatch } = this.props;
-    const isOK = await requestOffers(dispatch);
-    if (!isOK) {
-      this.clearRequestOffersTicker = retryRequestOffers(dispatch);
+    constructor(props: any) {
+        super(props);
     }
-  }
 
-  componentWillUnmount() {
-    this.clearRequestOffersTicker();
-  }
+    async componentDidUpdate() {
+        // const { dispatch } = this.props;
+        // const isOK = await requestOffers(dispatch);
+        // if (!isOK) {
+        //     this.clearRequestOffersTicker = retryRequestOffers(dispatch);
+        // }
+    }
 
-  render() {
-    const { offers, bicycles, isRequestingOffers } = this.props;
+    componentWillUnmount() {
+        this.clearRequestOffersTicker();
+    }
 
-    return (
-      <div className="Overview">
-        <NewestOffer
-          isRequesting={isRequestingOffers || false}
-          offers={offers}
-          bicycles={bicycles}
-        />
-      </div>
-    );
-  }
+    render() {
+        const { offers, bicycles, isRequestingOffers } = this.props;
+
+        return (
+            <div className="Overview">
+                <NewestOffer
+                    isRequesting={isRequestingOffers || false}
+                    offers={offers}
+                    bicycles={bicycles}
+                />
+                <OpeningHours />
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = (state: AppState) => ({
-  bicycles: state.bicycles,
-  offers: state.offers,
-  isRequestingOffers: state.currentRequests.offers
+    bicycles: state.bicycles,
+    offers: state.offers,
 });
 
 export default connect(mapStateToProps)(Overview);
