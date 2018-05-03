@@ -1,28 +1,36 @@
-import React from "react";
-import { OpeningHours, Day, week } from "./types";
+import React from 'react';
+import { OpeningHours, Day } from './types';
+import './opening_hours.css';
 
 interface DayProps {
-  name: string;
-  isOpen: boolean;
+    day: Day;
 }
 
-function Day(props: DayProps) {
-  if (props.isOpen) {
-    return <p className="open">{props.name}</p>;
-  }
+function DayComponent(props: DayProps) {
+    let isToday = props.day.isToday() ? 'is-today' : '';
+    if (props.day.isOpenDay()) {
+        return <li className={'open-day ' + isToday}>{props.day.short}</li>;
+    }
 
-  return <p className="closed">{props.name}</p>;
+    return (
+        <li className={'closed-day ' + isToday}>
+            {isToday}
+            {props.day.short}
+        </li>
+    );
 }
 
 interface OverviewProps {
-  hours: OpeningHours;
+    hours: OpeningHours;
 }
 
 function WeekOverview(props: OverviewProps) {
-  return week(props.hours).map(({ day, name }) => {
     return (
-      <Day key={name} name={name} isOpen={day.length === 0 ? false : true} />
+        <ul id="week-overview">
+            {props.hours
+                .week()
+                .map(day => <DayComponent key={day.key} day={day} />)}
+        </ul>
     );
-  });
 }
 export default WeekOverview;
