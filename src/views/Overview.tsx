@@ -2,50 +2,12 @@ import React, { Component } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import AppState from '../state';
-import { BicyclesIndex, OffersIndex } from '../bicycle';
-import NewestOffer from './NewestOffer';
+import AppState from '../appState';
+import NewestOffers from './NewestOffers';
 import OpeningHours from '../openingHours';
-
-// const requestOffers = async (dispatch: Dispatch<AppState>) => {
-//     dispatch(requestingOffers());
-
-//     const { offers, bicycles, err } = await offersAPI.requestOffers();
-
-//     if (err) {
-//         if (typeof err.Type === ErrorType.BadInput) {
-//             // sentry.send(err);
-//             throw err;
-//         }
-
-//         dispatch(updateBackendState(BackendCondition.Error));
-//     }
-
-//     dispatch(updateBackendState(BackendCondition.OK));
-//     dispatch(updateOffers(offers));
-//     dispatch(updateBicycles(bicycles));
-
-//     dispatch(stopRequestingOffers());
-// };
-
-// const retryRequestOffers = (dispatch: Dispatch<AppState>): (() => void) => {
-//     const ticker = setInterval(async () => {
-//         const isOK = await requestOffers(dispatch);
-//         if (!isOK) {
-//             clearInterval(ticker);
-//         }
-//     }, http.timeout + 5);
-
-//     return () => {
-//         clearInterval(ticker);
-//     };
-// };
 
 interface Props {
     dispatch: Dispatch<AppState>;
-    offers: OffersIndex;
-    bicycles: BicyclesIndex;
-    isRequestingOffers?: boolean;
 }
 
 class Overview extends Component<Props> {
@@ -68,24 +30,15 @@ class Overview extends Component<Props> {
     }
 
     render() {
-        const { offers, bicycles, isRequestingOffers } = this.props;
-
         return (
             <div className="Overview">
-                <NewestOffer
-                    isRequesting={isRequestingOffers || false}
-                    offers={offers}
-                    bicycles={bicycles}
-                />
+                <NewestOffers />
                 <OpeningHours />
             </div>
         );
     }
 }
 
-const mapStateToProps = (state: AppState) => ({
-    bicycles: state.bicycles,
-    offers: state.offers,
-});
+const mapStateToProps = (state: AppState) => ({});
 
 export default connect(mapStateToProps)(Overview);

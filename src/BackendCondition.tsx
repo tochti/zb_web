@@ -1,7 +1,7 @@
 import React from 'react';
 import produce from 'immer';
 import { connect } from 'react-redux';
-import AppState from './state';
+import AppState from './appState';
 
 export enum BackendCondition {
     OK,
@@ -33,7 +33,7 @@ export const reducer = (
         }
     });
 
-const BackendConditionComponent = (props: { condition: BackendCondition }) => {
+const BackendConditionComponent = () => {
     return (
         <div>
             <p>{BackendCondition.OK ? 'OK' : 'Error'}</p>
@@ -41,8 +41,6 @@ const BackendConditionComponent = (props: { condition: BackendCondition }) => {
     );
 };
 
-const mapStateToProps = (state: AppState) => ({
-    condition: state.backendCondition,
-});
+const mapStateToProps = (state: AppState) => ({});
 
 export default connect(mapStateToProps)(BackendConditionComponent);
