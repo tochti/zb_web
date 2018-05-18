@@ -1,0 +1,54 @@
+#newest-offers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newest-offers>h1 {
+    align-self: flex-start;
+}
+
+#newest-offers>.is-requesting {
+    margin-top: 6.75vh;
+}
+
+#newest-offers>ul {
+    padding: 0;
+    margin-bottom: 3.3vh;
+    width: 100%;
+}
+
+#newest-offers>ul>li {
+    list-style: none;
+    border-bottom: 1px solid var(--base-color-15);
+    margin-bottom: 2.25vh;
+    background-image: url('../../images/listItemArrow.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#newest-offers>ul>li:last-child {
+    margin-bottom: 0;
+}
+
+#newest-offers>ul>li>a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#newest-offers>ul>li>a>img {
+    margin-right: 4.05vw;
+}
+
+#newest-offers>ul>li>a>p {
+    font-family: Montserrat;
+    font-size: 1.8em;
+    color: var(--base-color);
+    font-weight: 300;
+    padding: 0;
+}
+
+#newest-offers>#goto-offers-overview {
+    width: 68%;
+}

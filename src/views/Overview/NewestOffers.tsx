@@ -7,8 +7,14 @@ import { Dispatch } from 'redux';
 import { appendOffers } from '../../offersReducer/actions';
 import { Link } from 'react-router-dom';
 
+import './NewestOffers.css';
+import { startRequest, stopRequest } from '../../requestReducer/actions';
+import RequestingIndicator from '../../components/RequestingIndicator';
+import NothingThere from '../../components/NothingThere';
+
 interface Props {
     offers: OffersState;
+    isRequesting: boolean;
     dispatch: Dispatch<AppState>;
 }
 
@@ -16,29 +22,48 @@ class NewestOffer extends Component<Props> {
     componentDidMount() {
         const { dispatch } = this.props;
 
+        dispatch(startRequest('readOffers'));
         offerService.readOffers(5).then(offers => {
+            dispatch(stopRequest('readOffers'));
             dispatch(appendOffers(offers));
         });
     }
 
     render() {
-        const { offers } = this.props;
+        const { offers, isRequesting } = this.props;
 
-        return (
-            <div className="newest-offers">
-                <h1>Aktuelle Angebote</h1>
-                <ol>
+        let offersList = <NothingThere />;
+
+        if (isRequesting) {
+            offersList = <RequestingIndicator />;
+        }
+
+        if (Object.keys(offers.idx).length !== 0) {
+            offersList = (
+                <ul>
                     {offers.byCreatedAt.map(({ id, offer }) => {
                         return (
-                            <Link key={id} to={`/offer/${id}`}>
-                                <li>
-                                    <p>{offer.thumb}</p>
+                            <li key={id}>
+                                <Link to={`/offer/${id}`}>
+                                    <img src={offer.thumb} />
                                     <p>{offer.title}</p>
-                                </li>
-                            </Link>
+                                </Link>
+                            </li>
                         );
                     })}
-                </ol>
+                </ul>
+            );
+        }
+
+        return (
+            <div id="newest-offers">
+                <h1>Aktuelle Angebote</h1>
+                {offersList}
+                {Object.keys(offers.idx).length === 0 || (
+                    <button id="goto-offers-overview" className="btn">
+                        Alle Angebote
+                    </button>
+                )}
             </div>
         );
     }
@@ -47,6 +72,7 @@ class NewestOffer extends Component<Props> {
 function s2p(state: AppState) {
     return {
         offers: state.offers,
+        isRequesting: state.request.requesting['readOffers'],
     };
 }
 

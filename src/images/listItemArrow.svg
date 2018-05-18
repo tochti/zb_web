@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="22px" viewBox="0 0 12 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>GoTo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Overview" transform="translate(-341.000000, -461.000000)" fill="#0000FF" fill-rule="nonzero">
+            <g id="Offers" transform="translate(20.000000, 299.000000)">
+                <g id="Offer-Copy" transform="translate(0.000000, 142.000000)">
+                    <path d="M332.493428,30.5614292 L322.068645,20.1832661 C321.823192,19.9389113 321.429542,19.9389113 321.184089,20.1832661 C320.938637,20.4276209 320.938637,20.8195107 321.184089,21.0638655 L331.16428,30.9994237 L321.184089,40.9349819 C320.938637,41.1793367 320.938637,41.5712265 321.184089,41.8155813 C321.3045,41.9354534 321.466591,42 321.624051,42 C321.781511,42 321.943603,41.9400639 322.064013,41.8155813 L332.488797,31.4374181 C332.734249,31.1976738 332.734249,30.8011736 332.493428,30.5614292 Z" id="GoTo"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
