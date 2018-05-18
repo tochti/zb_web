@@ -32,6 +32,10 @@ export class Day {
         this.openPeriods = openPeriods;
     }
 
+    isDay(x: WeekDay): boolean {
+        return this.key === x;
+    }
+
     isToday(): boolean {
         const today = moment().isoWeekday();
         return this.key === today;
@@ -81,10 +85,8 @@ export class OpeningHours {
         ];
     }
 
-    public today(): Day {
-        const today = moment().isoWeekday();
-
-        switch (today) {
+    public day(d: WeekDay): Day {
+        switch (d as number) {
             case 1:
                 return this.monday;
             case 2:
@@ -102,6 +104,11 @@ export class OpeningHours {
         }
 
         throw new Error('Unkown day');
+    }
+
+    public today(): Day {
+        const today = moment().isoWeekday();
+        return this.day(today as WeekDay);
     }
 }
 

@@ -3,24 +3,29 @@ import moment from 'moment';
 import { Day, Period } from './types';
 
 function ClosedState() {
-    return <p className="closed">Geschlossen</p>;
+    return <li className="is-now closed">geschlossen</li>;
 }
 
 interface PeriodProps {
     period: Period;
     isOpen: boolean;
+    isNow: boolean;
 }
 
 function PeriodComponent(props: PeriodProps) {
-    let opened = null;
+    let cls = 'period';
     if (props.isOpen) {
-        opened = '->';
+        cls = cls + ' is-open';
     }
+    if (props.isNow) {
+        cls = cls + ' is-now';
+    }
+
     return (
-        <p>
-            {opened} {props.period.from.format('HH:mm')} -{' '}
+        <li className={cls}>
+            {props.period.from.format('HH:mm')} -{' '}
             {props.period.to.format('HH:mm')}
-        </p>
+        </li>
     );
 }
 
@@ -29,16 +34,25 @@ interface OverviewProps {
 }
 
 function DayOverview(props: OverviewProps) {
+    if (props.day.openPeriods.length === 0) {
+        return (
+            <div id="day-overview">
+                <p id="closed-day">nicht geöffnet</p>
+            </div>
+        );
+    }
+
     const now = moment();
     const elems: JSX.Element[] = [];
     let foundClosed = false;
     for (const p of props.day.openPeriods) {
         if (now.isBefore(p.from) && !foundClosed) {
-            elems.push(<ClosedState />);
+            elems.push(<ClosedState key={'closed'} />);
             elems.push(
                 <PeriodComponent
                     key={p.from.toISOString()}
                     isOpen={false}
+                    isNow={false}
                     period={p}
                 />
             );
@@ -48,6 +62,7 @@ function DayOverview(props: OverviewProps) {
                 <PeriodComponent
                     key={p.from.toISOString()}
                     isOpen={true}
+                    isNow={true}
                     period={p}
                 />
             );
@@ -56,12 +71,14 @@ function DayOverview(props: OverviewProps) {
                 <PeriodComponent
                     key={p.from.toISOString()}
                     isOpen={false}
+                    isNow={false}
                     period={p}
                 />
             );
+            elems.push(<ClosedState key={'closed'} />);
         }
     }
 
-    return <div id="day-overview">{elems}</div>;
+    return <ul id="day-overview">{elems}</ul>;
 }
 export default DayOverview;

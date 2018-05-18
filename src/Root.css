@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i');
+:root {
+    --base-color: rgb(0, 0, 0);
+    --base-color-15: rgba(0, 0, 0, 0.15);
+}
+
+html {
+    font-size: 62.5%;
+    color: var(--base-color);
+}
+
+h1 {
+    font-size: 2.4em;
+    font-family: Montserrat;
+    font-weight: 500;
+    margin-bottom: 3.3vh
+}

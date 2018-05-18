@@ -11,6 +11,12 @@ export interface Offer {
     expiresAt: Moment;
 }
 
+export type OfferId = number;
+
 export interface Service {
-    readOffers(amount?: number, offset?: number): Promise<Offer[]>;
+    readOffers(
+        amount?: number,
+        offset?: number
+    ): Promise<{ id: OfferId; offer: Offer }[]>;
+    readOffer(id: OfferId): Promise<Offer>;
 }

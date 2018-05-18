@@ -1,0 +1,79 @@
+#opening-hours {
+    margin-top: 4.65vh;
+    margin-bottom: 9.45vh;
+}
+
+#week-overview {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 2.25vw;
+}
+
+#week-overview>li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    list-style: none;
+    font-family: Montserrat;
+    font-weight: 300;
+    font-size: 1.8em;
+    height: 4vh;
+    cursor: pointer;
+}
+
+#week-overview>li.closed-day {
+    color: var(--base-color-15);
+}
+
+#week-overview>li.selected {
+    text-decoration: underline;
+}
+
+#week-overview>li.is-today {
+    background-image: url('../../images/isToday.svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+#day-overview {
+    padding: 0;
+}
+
+#day-overview>#closed-day {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8em;
+    font-family: Montserrat;
+    color: var(--base-color-15);
+}
+
+#day-overview>li {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-size: 1.8em;
+    font-family: Montserrat;
+    font-weight: 300;
+    font-style: italic;
+    padding-top: 0.45vh;
+    padding-bottom: 0.45vh;
+    margin-bottom: 1.65vh;
+}
+
+#day-overview>li:last-child {
+    margin-bottom: 0;
+}
+
+#day-overview>li.is-now {
+    border: 1px solid var(--base-color);
+    border-radius: 2px;
+    background-color: var(--base-color-15);
+}
+
+#day-overview>li.closed {
+    color: var(--base-color-15);
+    border-color: var(--base-color-15);
+    background-color: transparent;
+}

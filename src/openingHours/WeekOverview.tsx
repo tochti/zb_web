@@ -1,35 +1,54 @@
 import React from 'react';
-import { OpeningHours, Day } from './types';
-import './opening_hours.css';
+import { OpeningHours, WeekDay } from './types';
 
 interface DayProps {
-    day: Day;
+    dayName: string;
+    isOpenDay: boolean;
+    isToday: boolean;
+    isSelected: boolean;
+    selectDay: (() => void) | undefined;
 }
 
 function DayComponent(props: DayProps) {
-    let isToday = props.day.isToday() ? 'is-today' : '';
-    if (props.day.isOpenDay()) {
-        return <li className={'open-day ' + isToday}>{props.day.short}</li>;
-    }
+    let isOpen = props.isOpenDay ? 'open-day' : 'closed-day';
+    let isToday = props.isToday ? 'is-today' : '';
+    let isSelected = props.isSelected ? 'selected' : '';
 
     return (
-        <li className={'closed-day ' + isToday}>
-            {isToday}
-            {props.day.short}
+        <li
+            onClick={props.selectDay}
+            className={isOpen + ' ' + isToday + ' ' + isSelected}>
+            {props.dayName}
         </li>
     );
 }
 
 interface OverviewProps {
     hours: OpeningHours;
+    selectedDay: WeekDay;
+    selectDay: (d: WeekDay) => void;
 }
 
 function WeekOverview(props: OverviewProps) {
     return (
         <ul id="week-overview">
-            {props.hours
-                .week()
-                .map(day => <DayComponent key={day.key} day={day} />)}
+            {props.hours.week().map(day => {
+                const isSelected = day.isDay(props.selectedDay);
+                return (
+                    <DayComponent
+                        key={day.key}
+                        dayName={day.short}
+                        isOpenDay={day.isOpenDay()}
+                        isToday={day.isToday()}
+                        isSelected={isSelected}
+                        selectDay={
+                            isSelected
+                                ? undefined
+                                : () => props.selectDay(day.key)
+                        }
+                    />
+                );
+            })}
         </ul>
     );
 }

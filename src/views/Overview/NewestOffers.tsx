@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AppState from '../appState';
-import { State as OffersState } from '../offersReducer';
-import offerService from '../offers/service';
+import AppState from '../../appState';
+import { State as OffersState } from '../../offersReducer';
+import offerService from '../../offers/service';
 import { Dispatch } from 'redux';
-import { appendOffers } from '../offersReducer/actions';
+import { appendOffers } from '../../offersReducer/actions';
+import { Link } from 'react-router-dom';
 
 interface Props {
     offers: OffersState;
@@ -16,7 +17,7 @@ class NewestOffer extends Component<Props> {
         const { dispatch } = this.props;
 
         offerService.readOffers(5).then(offers => {
-            dispatch(appendOffers(offers);
+            dispatch(appendOffers(offers));
         });
     }
 
@@ -27,12 +28,14 @@ class NewestOffer extends Component<Props> {
             <div className="newest-offers">
                 <h1>Aktuelle Angebote</h1>
                 <ol>
-                    {offers.byCreatedAt.map(o => {
+                    {offers.byCreatedAt.map(({ id, offer }) => {
                         return (
-                            <li>
-                                <p>{o.image}</p>
-                                <p>{o.title}</p>
-                            </li>
+                            <Link key={id} to={`/offer/${id}`}>
+                                <li>
+                                    <p>{offer.thumb}</p>
+                                    <p>{offer.title}</p>
+                                </li>
+                            </Link>
                         );
                     })}
                 </ol>
