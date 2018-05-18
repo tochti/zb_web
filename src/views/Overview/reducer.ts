@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { WeekDay } from '../../openingHours/types';
+import { WeekDay } from '../../OpeningHours/types';
 import { VIEW_DAY } from './actions';
 
 export interface State {

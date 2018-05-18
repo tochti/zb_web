@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import AppState from '../../appState';
 import NewestOffers from './NewestOffers';
-import OpeningHours from '../../openingHours';
-import { WeekDay } from '../../openingHours/types';
+import OpeningHours from '../../OpeningHours';
+import { WeekDay } from '../../OpeningHours/types';
 import { viewDay } from './actions';
 
 import './Overview.css';

@@ -1,4 +1,4 @@
-import { WeekDay } from '../../openingHours/types';
+import { WeekDay } from '../../OpeningHours/types';
 
 export const VIEW_DAY = 'VIEW_DAY';
 export function viewDay(day: WeekDay) {
