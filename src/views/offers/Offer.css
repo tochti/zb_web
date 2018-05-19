@@ -1,5 +1,5 @@
 .offer>nav {
-    position: absolute;
+    position: fixed;
     top: 2.25vh;
     left: 4.05vw;
 }

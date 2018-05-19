@@ -25,6 +25,7 @@
     background-image: url('../../images/listItemArrow.svg');
     background-repeat: no-repeat;
     background-position: right;
+    padding-bottom: 1.65vh;
 }
 
 #newest-offers>ul>li:last-child {
@@ -34,11 +35,14 @@
 #newest-offers>ul>li>a {
     display: flex;
     flex-direction: row;
+    align-items: center;
     text-decoration: none;
 }
 
 #newest-offers>ul>li>a>img {
     border-radius: 50%;
+    height: 11.25vh;
+    width: 20.25vw;
     margin-right: 4.05vw;
 }
 
@@ -48,6 +52,8 @@
     color: var(--base-color);
     font-weight: 300;
     padding: 0;
+    margin: 0;
+    margin-right: 5.94vw;
 }
 
 #newest-offers>#goto-offers-overview {

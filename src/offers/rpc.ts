@@ -16,8 +16,10 @@ export default class RPC {
                             newPrice: 1000,
                             oldPrice: 1500,
                             description: 'long description',
-                            image: 'http://urltoimage',
-                            thumb: 'http://urltothumb',
+                            image:
+                                'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
+                            thumb:
+                                'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
                             createdAt: moment(),
                             expiresAt: moment(),
                         },
@@ -29,8 +31,10 @@ export default class RPC {
                             newPrice: 1000,
                             oldPrice: 1500,
                             description: 'long description',
-                            image: 'http://urltoimage',
-                            thumb: 'http://urltothumb',
+                            image:
+                                'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
+                            thumb:
+                                'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
                             createdAt: moment(),
                             expiresAt: moment(),
                         },
@@ -42,8 +46,10 @@ export default class RPC {
                             newPrice: 1000,
                             oldPrice: 1500,
                             description: 'long description',
-                            image: 'http://urltoimage',
-                            thumb: 'http://urltothumb',
+                            image:
+                                'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
+                            thumb:
+                                'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
                             createdAt: moment(),
                             expiresAt: moment(),
                         },
@@ -61,8 +67,10 @@ export default class RPC {
                     newPrice: 1000,
                     oldPrice: 1500,
                     description: 'long description',
-                    image: 'http://urltoimage',
-                    thumb: 'http://urltothumb',
+                    image:
+                        'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
+                    thumb:
+                        'https://s.bikesale.de/images/pictures_sellbike/VF1vMk353Q4uJQ7nq~mV8ZKfLcH~tV6X_zoom.jpg',
                     createdAt: moment(),
                     expiresAt: moment(),
                 });
