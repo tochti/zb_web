@@ -14,6 +14,9 @@ import {
     requestError,
 } from '../../requestReducer/actions';
 
+import './Offer.css';
+import OfferBackBtn from './OfferBackBtn';
+
 interface RouterProps {
     id: OfferId;
 }
@@ -63,7 +66,10 @@ class OfferView extends Component<Props> {
 
         return (
             <div className="offer-page">
-                <OfferComponent offer={offer} />
+                <OfferComponent
+                    backBtn={<OfferBackBtn to="/" />}
+                    offer={offer}
+                />
             </div>
         );
     }

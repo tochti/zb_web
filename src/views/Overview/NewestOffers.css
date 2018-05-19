@@ -38,6 +38,7 @@
 }
 
 #newest-offers>ul>li>a>img {
+    border-radius: 50%;
     margin-right: 4.05vw;
 }
 

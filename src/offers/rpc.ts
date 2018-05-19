@@ -57,7 +57,7 @@ export default class RPC {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve({
-                    title: 'test offer',
+                    title: 'Victora Queens Lady',
                     newPrice: 1000,
                     oldPrice: 1500,
                     description: 'long description',
@@ -66,7 +66,7 @@ export default class RPC {
                     createdAt: moment(),
                     expiresAt: moment(),
                 });
-            }, 2 * 1000);
+            }, 0);
         });
     }
 }

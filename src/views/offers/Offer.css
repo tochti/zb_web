@@ -1,0 +1,68 @@
+.offer>nav {
+    position: absolute;
+    top: 2.25vh;
+    left: 4.05vw;
+}
+
+.offer>img {
+    width: 100%;
+    margin-bottom: 3.3vh;
+}
+
+.offer>h1 {
+    text-align: center;
+    font-size: 2.4em;
+    margin: 0;
+    margin-bottom: 3.3vh;
+    margin-right: 5.94vw;
+    margin-left: 5.94vw;
+}
+
+.offer>.bicycle-infos {
+    margin-right: 5.94vw;
+    margin-left: 5.94vw;
+    margin-bottom: 3.3vh;
+}
+
+.offer>.bicycle-infos>.bicycle-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--base-color-15);
+    font-family: Montserrat;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.8em;
+    padding: 0;
+    padding-bottom: 1.65vh;
+    margin-bottom: 3.3vh;
+}
+
+.offer>.bicycle-infos>.bicycle-info>p {
+    padding: 0;
+    margin: 0;
+}
+
+.offer>.bicycle-infos>.bicycle-info>p.old-price-label,
+.offer>.bicycle-infos>.bicycle-info>p.old-price {
+    color: var(--base-color-50);
+}
+
+.offer>h2 {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 2.0em;
+    margin: 0;
+    margin-left: 5.94vw;
+    margin-right: 5.94vw;
+    margin-bottom: 3.3vh;
+    padding: 0;
+}
+
+.offer>.description {
+    font-family: Montserrat;
+    font-weight: 300;
+    font-size: 1.4em;
+    margin-left: 8.37vw;
+    margin-right: 5.94vw;
+}

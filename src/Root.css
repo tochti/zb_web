@@ -2,6 +2,7 @@
 :root {
     --base-color: rgb(0, 0, 0);
     --base-color-15: rgba(0, 0, 0, 0.15);
+    --base-color-50: rgba(0, 0, 0, 0.5);
 }
 
 html {
