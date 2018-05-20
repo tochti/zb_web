@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="25px" viewBox="0 0 28 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M61.4040842,9.40467474 L51.9920815,18.8571429 L42.6011465,9.38874361 C41.5688284,8.34791005 41,6.96721246 41,5.49623848 C41,4.02526451 41.5635614,2.64456692 42.5958796,1.60904373 C43.6229308,0.573520537 44.9923324,0 46.4460049,0 C47.9049443,0 49.2796129,0.573520537 50.311931,1.61435411 L51.5022571,2.81449893 C51.7814043,3.09594883 52.2290933,3.09594883 52.5082406,2.81449893 L53.6880327,1.62497486 C54.7203509,0.584141288 56.0950194,0.0106207507 57.5486919,0.0106207507 C59.0023644,0.0106207507 60.371766,0.584141288 61.4040842,1.61966448 C62.4364023,2.66049805 62.9999637,4.04119564 62.9999637,5.51216961 C63.0052307,6.98314358 62.4364023,8.36384117 61.4040842,9.40467474 Z" id="path-1"></path>
+        <filter x="-25.0%" y="-29.2%" width="159.1%" height="168.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="1" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="3" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="1" dy="1" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Menu" transform="translate(-39.000000, 2.000000)">
+            <g id="Heart">
+                <g>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <path stroke="#0000FF" stroke-width="2" d="M60.6947364,8.69981535 C61.5419098,7.8453123 62.0042773,6.71867573 61.9999637,5.51216961 C61.9999637,4.3020258 61.5385583,3.17530621 60.6958823,2.32567444 C59.8493648,1.47652874 58.7340376,1.01062075 57.5486919,1.01062075 C56.3609038,1.01062075 55.2420512,1.47819593 54.3980379,2.32917127 L53.2182458,3.51869535 C52.5479205,4.19455002 51.4625771,4.19455002 50.7922518,3.51869535 L49.6019258,2.31855052 C48.7575136,1.4671729 47.6384989,1 46.4460049,1 C45.2605201,1 44.1462615,1.46593131 43.3040815,2.31505368 C42.4614247,3.16032665 42,4.2859586 42,5.49623848 C42,6.70271191 42.4640988,7.83050711 43.3111517,8.6845472 L51.9934735,17.438488 L60.6947364,8.69981535 Z" stroke-linejoin="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

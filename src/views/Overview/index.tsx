@@ -10,6 +10,7 @@ import { viewDay } from './actions';
 
 import './Overview.css';
 import './OpeningHours.css';
+import MenuBtn from '../../menu/Btn';
 
 interface Props {
     viewingDay: WeekDay | null;
@@ -31,6 +32,7 @@ class Overview extends Component<Props> {
                     selectedDay={viewingDay}
                 />
                 <NewestOffers />
+                <MenuBtn />
             </div>
         );
     }

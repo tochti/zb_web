@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,500,500i');
 :root {
-    --base-color: rgb(0, 0, 0);
-    --base-color-15: rgba(0, 0, 0, 0.15);
-    --base-color-50: rgba(0, 0, 0, 0.5);
+    --base-color: rgb(0, 0, 255);
+    --base-color-15: rgba(0, 0, 255, 0.15);
+    --base-color-50: rgba(0, 0, 255, 0.5);
 }
 
 html {
